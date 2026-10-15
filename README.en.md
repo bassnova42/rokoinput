@@ -2,7 +2,7 @@
 
 [简体中文](README.md) · **English**
 
-A source-only macOS voice input project for non-commercial learning. Hold your shortcut to speak, release it to stop, and insert the final transcript at the cursor.
+A source-only macOS voice input project for personal, non-commercial use. Hold your shortcut to speak, release it to stop, and insert the final transcript at the cursor.
 
 ## Apple models only. On-device recognition only.
 
@@ -100,9 +100,9 @@ Use **打开文字日志目录** to open the folder. Turn off **保存每次转�
 
 Unit checks and compilation do not establish live recognition, global-key delivery, network traffic, or compatibility with every editor. Test those on your device after granting permissions, including with network access unavailable. Apple model availability is a runtime prerequisite; unsupported devices intentionally cannot dictate. Do not substitute a cloud fallback.
 
-## License — learning only, no commercial use
+## License — personal use only, no commercial use
 
-This project is **source-available for non-commercial learning and teaching only**, under the custom [Roko Input Learning-Only License](LICENSE). It is not MIT-licensed and is not an unrestricted open-source license. Commercial use, production deployment, paid services, resale and commercial integration are prohibited. Keep the license and attribution with permitted educational copies and modifications. Apple's models/frameworks are not relicensed by this project.
+This project is **source-available for personal, non-commercial use and teaching only**, under the custom [Roko Input Personal Non-Commercial License](LICENSE). It is not MIT-licensed and is not an unrestricted open-source license. Commercial use, business or organizational use, paid services, resale and commercial integration are prohibited. Keep the license and attribution with permitted copies and modifications. Apple's models/frameworks are not relicensed by this project.
 
 ### Settings workspace
 
