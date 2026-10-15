@@ -1,0 +1,16 @@
+build/
+dist/
+.DS_Store
+*.jsonl
+*.log
+*.wav
+*.pcm
+*.m4a
+*.dSYM/
+.env*
+!.env.example
+*.app/
+*.pkg
+*.dmg
+*.zip
+statistics.json

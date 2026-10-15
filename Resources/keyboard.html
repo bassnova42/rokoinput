@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>键盘局部</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0b0c0e; --panel:#121418; --line:#2a2e35;
+  --ink:#e6e8ec; --muted:#7c838e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:transparent;color:var(--ink);
+  font:14px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif}
+.wrap{max-width:320px;margin:0 auto;padding:0}
+.card{overflow:hidden}
+svg{display:block;width:100%;height:auto}
+.leg{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <svg id="kb" viewBox="313 47 270 190" role="img" aria-label="键盘局部特写，F5 键为橙色">
+      <defs>
+        <!-- 机身铝壳 -->
+        <linearGradient id="caseG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2a2d32"/><stop offset="1" stop-color="#1c1e22"/>
+        </linearGradient>
+        <!-- 键位凹槽 -->
+        <linearGradient id="wellG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#08090a"/><stop offset="1" stop-color="#0e0f11"/>
+        </linearGradient>
+        <!-- 普通键帽 -->
+        <linearGradient id="skirtG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2c2f35"/><stop offset="1" stop-color="#17191c"/>
+        </linearGradient>
+        <linearGradient id="topG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3a3e45"/><stop offset="1" stop-color="#2b2e34"/>
+        </linearGradient>
+        <!-- 橙色键帽 -->
+        <linearGradient id="skirtO" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e07f17"/><stop offset="1" stop-color="#9b4f07"/>
+        </linearGradient>
+        <linearGradient id="topO" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffb653"/><stop offset="1" stop-color="#f48e1f"/>
+        </linearGradient>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+          <feGaussianBlur stdDeviation="2.2"/>
+        </filter>
+        <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="9"/>
+        </filter>
+        <!-- 四周渐隐，表示只截了一角 -->
+        <linearGradient id="fadeR" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#000"/><stop offset=".16" stop-color="#fff"/><stop offset=".84" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+        </linearGradient>
+        <linearGradient id="fadeB" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#000"/><stop offset=".2" stop-color="#fff"/><stop offset=".8" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+        </linearGradient>
+        <mask id="fadeM" maskUnits="userSpaceOnUse" x="0" y="0" width="760" height="470">
+          <rect x="313" y="47" width="270" height="190" fill="url(#fadeR)"/>
+        </mask>
+        <mask id="fadeM2" maskUnits="userSpaceOnUse" x="0" y="0" width="760" height="470">
+          <rect x="313" y="47" width="270" height="190" fill="url(#fadeB)"/>
+        </mask>
+      </defs>
+
+      <g mask="url(#fadeM)"><g mask="url(#fadeM2)">
+        <rect x="28" y="30" width="900" height="600" rx="22" fill="url(#caseG)"/>
+        <rect x="28.5" y="30.5" width="899" height="599" rx="21.5" fill="none" stroke="rgba(255,255,255,.07)"/>
+        <rect x="44" y="46" width="880" height="580" rx="12" fill="url(#wellG)"/>
+        <g id="keys"></g>
+      </g></g>
+    </svg>
+  </div>
+</div>
+
+<script>
+(() => {
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, parent) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    parent && parent.appendChild(n);
+    return n;
+  };
+  const root = document.getElementById("keys");
+
+  const P = 66, GAP = 8, X0 = 56, R = 7;      // 键距、间隙、起点、圆角
+  // 每行：[y, 高, [[主字符, 副字符, 宽(单位), 对齐], ...]]
+  const rows = [
+    [56, 44, [["esc", "", 1.5, "l"], ["F1"], ["F2"], ["F3"], ["F4"], ["F5"], ["F6"], ["F7"], ["F8"], ["F9"]]],
+    [112, 58, [["`", "~"], ["1", "!"], ["2", "@"], ["3", "#"], ["4", "$"], ["5", "%"], ["6", "^"], ["7", "&"], ["8", "*"], ["9", "("]]],
+    [178, 58, [["tab", "", 1.5, "l"], ["Q"], ["W"], ["E"], ["R"], ["T"], ["Y"], ["U"], ["I"], ["O"]]],
+    [244, 58, [["caps lock", "", 1.8, "l"], ["A"], ["S"], ["D"], ["F"], ["G"], ["H"], ["J"], ["K"]]],
+    [310, 58, [["shift", "", 2.3, "l"], ["Z"], ["X"], ["C"], ["V"], ["B"], ["N"], ["M"]]],
+    [376, 58, [["fn", "", 1, "l"], ["control", "", 1, "l"], ["option", "", 1, "l"], ["command", "", 1.3, "l"], ["", "", 5]]],
+  ];
+
+  function mic(g, cx, cy, color) {
+    el("rect", { x: cx - 3, y: cy - 8, width: 6, height: 10, rx: 3, fill: color }, g);
+    el("path", { d: `M${cx - 6},${cy - 1} a6,6 0 0 0 12,0 M${cx},${cy + 5} v3`, fill: "none", stroke: color, "stroke-width": 1.4, "stroke-linecap": "round" }, g);
+  }
+
+  function key(x, y, w, h, main, sub, align, hot) {
+    const g = el("g", {}, root);
+    if (hot) el("rect", { x: x - 4, y: y - 4, width: w + 8, height: h + 8, rx: R + 4, fill: "#ff9a2e", opacity: .38, filter: "url(#glow)" }, g);
+    el("rect", { x, y: y + 2.5, width: w, height: h, rx: R, fill: "#000", opacity: .7, filter: "url(#shadow)" }, g);
+    el("rect", { x, y, width: w, height: h, rx: R, fill: hot ? "url(#skirtO)" : "url(#skirtG)" }, g);
+    const tx = x + 3.5, ty = y + 2, tw = w - 7, th = h - 7;
+    el("rect", { x: tx, y: ty, width: tw, height: th, rx: R - 2, fill: hot ? "url(#topO)" : "url(#topG)" }, g);
+    // 顶面高光边
+    el("path", { d: `M${tx + 4},${ty + .6} H${tx + tw - 4}`, stroke: hot ? "rgba(255,240,210,.65)" : "rgba(255,255,255,.10)", "stroke-width": 1 }, g);
+
+    const ink = hot ? "#3a1d00" : "#c9ccd2", inkSub = hot ? "#5a2e00" : "#8d929a";
+    const fRow = h < 50;
+    if (!main) return g;
+    if (fRow && /^F\d+$/.test(main)) {
+      if (main === "F5") mic(g, tx + tw / 2, ty + 12, ink);
+      el("text", { class: "leg", x: tx + tw / 2, y: ty + th - 4, "text-anchor": "middle", "font-size": 9.5, fill: ink }, g).textContent = main;
+    } else if (align === "l") {
+      el("text", { class: "leg", x: tx + 6, y: ty + th - 6, "font-size": 10.5, fill: ink }, g).textContent = main;
+    } else if (sub) {
+      el("text", { class: "leg", x: tx + tw / 2, y: ty + 17, "text-anchor": "middle", "font-size": 12, fill: inkSub }, g).textContent = sub;
+      el("text", { class: "leg", x: tx + tw / 2, y: ty + th - 9, "text-anchor": "middle", "font-size": 15, fill: ink }, g).textContent = main;
+    } else {
+      el("text", { class: "leg", x: tx + tw / 2, y: ty + th / 2 + 6, "text-anchor": "middle", "font-size": 17, fill: ink }, g).textContent = main;
+    }
+    return g;
+  }
+
+  for (const [y, h, ks] of rows) {
+    let x = X0;
+    for (const [main, sub = "", u = 1, align = "c"] of ks) {
+      const w = u * P - GAP;
+      key(x, y, w, h, main, sub, align, main === "F5");
+      x += u * P;
+    }
+  }
+})();
+</script>
+</body>
+</html>

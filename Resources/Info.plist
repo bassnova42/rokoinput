@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleExecutable</key><string>RokoInput</string>
+<key>CFBundleIdentifier</key><string>im.roko.inputmethod.RokoInput</string>
+<key>CFBundleName</key><string>Roko Input</string>
+<key>CFBundleDisplayName</key><string>洛克输入法</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>0.4.0</string>
+<key>CFBundleVersion</key><string>7</string>
+<key>CFBundleDevelopmentRegion</key><string>zh-Hans</string>
+<key>CFBundleIconFile</key><string>RokoInput.tiff</string>
+<key>LSMinimumSystemVersion</key><string>13.0</string>
+<key>LSUIElement</key><true/>
+<key>NSMicrophoneUsageDescription</key><string>仅在你按住设置的快捷键或点击开始时采集语音，松开快捷键后停止采音。</string>
+<key>NSSpeechRecognitionUsageDescription</key><string>仅使用苹果端侧语音模型转写，不允许云端识别。不支持端侧识别时停止。</string>
+<key>NSHighResolutionCapable</key><true/>
+<key>InputMethodConnectionName</key><string>RokoInput_Connection</string>
+<key>InputMethodServerControllerClass</key><string>RokoInputController</string>
+<key>tsInputMethodIconFileKey</key><string>menu-icon.pdf</string>
+<key>tsInputMethodCharacterRepertoireKey</key><array><string>Latn</string><string>Hans</string><string>Hant</string></array>
+<key>ComponentInputModeDict</key><dict>
+<key>tsInputModeListKey</key><dict>
+<key>im.roko.inputmethod.RokoInput.voice</key><dict>
+<key>TISInputSourceID</key><string>im.roko.inputmethod.RokoInput.voice</string>
+<key>tsInputModeDefaultStateKey</key><true/>
+<key>tsInputModeIsVisibleKey</key><true/>
+<key>tsInputModeScriptKey</key><string>smSimpChinese</string>
+<key>tsInputModePrimaryInScriptKey</key><true/>
+<key>tsInputModeMenuIconFileKey</key><string>menu-icon.pdf</string>
+<key>tsInputModePaletteIconFileKey</key><string>menu-icon.pdf</string>
+<key>tsInputModeCharacterRepertoireKey</key><array><string>Latn</string><string>Hans</string><string>Hant</string></array>
+<key>TISIntendedLanguage</key><string>zh-Hans</string>
+</dict></dict>
+<key>tsVisibleInputModeOrderedArrayKey</key><array><string>im.roko.inputmethod.RokoInput.voice</string></array>
+</dict>
+</dict></plist>

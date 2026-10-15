@@ -1,0 +1,34 @@
+Roko Input Learning-Only License 1.0
+Copyright (c) 2026 Roko Input contributors
+
+1. Limited permission
+You may inspect, run, copy, modify, and redistribute this project's original
+source code solely for non-commercial personal learning or non-commercial
+teaching and educational demonstration. Permitted copies and modifications
+must retain this license and the original copyright notices, identify changes,
+and remain subject to these same restrictions.
+
+2. Prohibited uses
+Commercial use is prohibited, including sale, resale, licensing for payment,
+paid services, advertising-supported services, incorporation into commercial
+products, use in a business or for commercial benefit, and production
+operational deployment. Uses beyond the educational permission in section 1
+require separate prior written permission from the relevant copyright holders.
+
+3. Third-party rights
+This license covers only original project code to which its copyright holders
+can grant rights. Apple frameworks, operating-system components, speech models,
+and other third-party materials remain governed by their own terms. No rights
+to those materials or third-party trademarks are granted here.
+
+4. Disclaimer
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT HOLDERS
+ARE NOT LIABLE FOR CLAIMS, DAMAGES, OR OTHER LIABILITY ARISING FROM THE
+SOFTWARE OR ITS USE.
+
+5. Termination
+Permissions end automatically upon violation of this license. No other rights
+are granted by implication. This is a restrictive source-available educational
+license, not an OSI-approved open-source license.
