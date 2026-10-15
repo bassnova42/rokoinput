@@ -102,7 +102,7 @@ Unit checks and compilation do not establish live recognition, global-key delive
 
 ## License — personal use only, no commercial use
 
-This project is **source-available for personal, non-commercial use and teaching only**, under the custom [Roko Input Personal Non-Commercial License](LICENSE). It is not MIT-licensed and is not an unrestricted open-source license. Commercial use, business or organizational use, paid services, resale and commercial integration are prohibited. Keep the license and attribution with permitted copies and modifications. Apple's models/frameworks are not relicensed by this project.
+This project is **source-available for personal, non-commercial use only**, under the custom [Roko Input Personal Non-Commercial License](LICENSE). It is not MIT-licensed and is not an unrestricted open-source license. Commercial use, business or organizational use, paid services, resale and commercial integration are prohibited. Keep the license and attribution with permitted copies and modifications. Apple's models/frameworks are not relicensed by this project.
 
 ### Settings workspace
 
